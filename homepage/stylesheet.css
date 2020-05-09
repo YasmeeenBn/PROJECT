@@ -1,0 +1,80 @@
+body, html {
+    height: 100%;
+  }
+.nav-item
+{
+    padding: 0 5px;
+}
+
+.title
+{
+    margin-top: 200px;
+    color: white;
+    text-align: center;
+}
+
+.title h1
+{
+    font-family: 'Courgette', cursive;
+    font-size: 60px;
+    font-weight: 300;
+    margin: auto;
+}
+
+.title p
+{
+    font-family: 'Lato', sans-serif;
+}
+
+.video-container 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.top-container-buttons
+{
+    text-align: center;
+}
+
+.top-container-button1
+{
+    margin-right: 50px;
+    width: 230px !important;
+}
+
+.top-container-button2
+{
+    width: 230px !important;
+}
+
+.top-container-counter
+{
+    text-align: center;
+    color: tan;
+    margin-top: 370px;
+    margin-bottom: 150px;
+}
+
+.top-container-counter h1
+{
+    font-family: 'Courgette', cursive;
+}
+
+.top-container-counter p 
+{
+    font-family: 'Kalam', cursive;
+}
+
+.top-container-counter a
+{
+    font-family: 'Kalam', cursive;
+}
+
+.mid-container
+{
+    margin-top: 300px;
+}

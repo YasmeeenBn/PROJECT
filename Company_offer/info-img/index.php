@@ -1,4 +1,48 @@
+<?php
+    $host = 'localhost';
+    $dbname = 'pfa';
+    $username = 'root';
+    $password = '';
 
+
+        try {
+              $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+            //echo "Connecté à $dbname sur $host avec succès.";
+             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+        catch (PDOException $e) {
+              die("Impossible de se connecter à la base de données $dbname :" );
+        }
+        
+        if(isset($_POST['ok'])){
+
+                $folder ="uploads/"; 
+                $image = $_FILES['image']['name']; 
+                $path = $folder . $image ; 
+                $target_file=$folder.basename($_FILES["image"]["name"]);
+                $imageFileType=pathinfo($target_file,PATHINFO_EXTENSION);
+                $allowed=array('jpeg','png' ,'jpg'); $filename=$_FILES['image']['name']; 
+                $ext=pathinfo($filename, PATHINFO_EXTENSION);
+
+                if(!in_array($ext,$allowed) ) 
+
+                { 
+
+                echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
+
+                }
+
+                else{ 
+                      move_uploaded_file( $_FILES['image'] ['tmp_name'], $path); 
+                      $sth=$conn->prepare("insert into offre(image)values(:image) "); 
+                      $sth->bindParam(':image',$image); 
+                      $sth->execute(); 
+                } 
+
+} 
+     
+
+?> 
 <!DOCTYPE html>
 
 <html lang="en">
@@ -17,11 +61,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
 
+
     <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/6a5ed842d1.js" crossorigin="anonymous"></script>
 
     <!--Favicon-->
     <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <title> Image's upload</title>
 
   </head>
 
@@ -67,7 +113,7 @@
 
     <div class="container" >
 
-      <form id="contact" method="POST" enctype="multipart/form-data">
+    <form id="contact" method="POST" enctype="multipart/form-data" action = "">
 
         <div class="title">
           <h3> Last STEP - Your Company's LOGO </h3>
@@ -77,19 +123,28 @@
               <div class="title">     
                 <h2>  yas </h2>   <!-- just to have space -->
                 <h5> Upload Your LOGO </h5>
-                <h2>  yas </h2>    <!-- just to have space -->
               </div>
         </fieldset>
-       
-              
+        <fieldset></fieldset>
+        <fieldset>
 
-      
+        <form method="POST" enctype="multipart/form-data"> 
+              <input type="file" name="image" /> 
+              <input type="submit" name="ok"/> 
+        </form>
+        </fieldset>
 
-        <!-- BOUTON -->
-        
+      <!-- to see the pic   <a href="select.php">See Image</a>   -->
 
-        <p class="other">Plateform ENSIAS <a href="homepage\index.html" target="_blank" title="IWIMSTAGES">IWIMSTAGES</a></p>
-      </form>
+      <!--   </fieldset>
+            <fieldset>  
+          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">SEND OFFER</button>
+        </fieldset>
+
+
+
+        <p class="other">Plateform ENSIAS <a href="homepage\index.html" target="_blank" title="IWIMSTAGES">IWIMSTAGES</a></p> -->
+    </form>
 
     </div>
 

@@ -95,7 +95,7 @@
 
 
 <div class="main">
-    <h1>Offers</h1>
+    <h1>Offers Heeeeeeeeeey midification haha </h1>
     <ul class="cards">
     <?php  
             $res = $conn -> query($sqlselect);

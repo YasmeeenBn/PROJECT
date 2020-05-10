@@ -13,7 +13,8 @@ page des offres
 
  to do :
  ************************
- 
+ Ajouter image 
+ profil etudiants
 
 ************************************
 afficher la liste des etudiants avec les infos completes

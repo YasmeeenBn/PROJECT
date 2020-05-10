@@ -9,11 +9,11 @@ page des offres
  ETUDIANT:
  *************************
  student sign up
+  Ajouter image
  student log in
 
  to do :
  ************************
- Ajouter image 
  profil etudiants
 
 ************************************

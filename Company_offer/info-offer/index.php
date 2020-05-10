@@ -81,7 +81,7 @@
           <label for="of_datedebut">    </label><input placeholder="Start date" name="of_datedebut" type="text" tabindex="1" required autofocus>
           </fieldset>
 
-          <fieldset>
+          <fieldset>  
             <label for="of_datefin">    </label><input placeholder="End date" name="of_datefin" type="text" tabindex="1" required autofocus>
           </fieldset>
 
@@ -93,14 +93,13 @@
           <label for="of_description">    </label><textarea placeholder="Details of your offer" name="of_description" tabindex="5" required></textarea>
           </fieldset>
 
-
         <fieldset>
           <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">NEXT</button>
         </fieldset>
 
         <p class="other">Plateform ENSIAS <a href="homepage\index.html" target="_blank" title="IWIMSTAGES">IWIMSTAGES</a></p>
       </form>
-
+      
     </div>
 
   </div>

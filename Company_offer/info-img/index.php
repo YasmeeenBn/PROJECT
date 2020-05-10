@@ -3,6 +3,8 @@
     $dbname = 'pfa';
     $username = 'root';
     $password = '';
+    $offre_id = $_GET['id'];
+    // echo $offre_id;
 
 
         try {
@@ -34,9 +36,11 @@
 
                 else{ 
                       move_uploaded_file( $_FILES['image'] ['tmp_name'], $path); 
-                      $sth=$conn->prepare("insert into offre(image)values(:image) "); 
-                      $sth->bindParam(':image',$image); 
-                      $sth->execute(); 
+                      // UPDATE `offre` SET `image` = 'ciel.jpgioaiozdj' WHERE `offre`.`offre_id` = 4 
+                      $sth=$conn->prepare("UPDATE offre SET image = :image WHERE offre_id = :offre_id "); 
+                      $sth->bindParam(':offre_id',$offre_id);
+                      $sth->bindParam(':image',$image);
+                      $sth->execute();
                 } 
 
 } 

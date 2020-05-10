@@ -95,7 +95,7 @@
 
 
         <fieldset>
-          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Send Offer</button>
+          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">NEXT</button>
         </fieldset>
 
         <p class="other">Plateform ENSIAS <a href="homepage\index.html" target="_blank" title="IWIMSTAGES">IWIMSTAGES</a></p>

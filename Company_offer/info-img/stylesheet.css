@@ -1,3 +1,4 @@
+/* ******************************************************************************** */
 body {
   background-image: url("images/office.jpg");
   
@@ -130,3 +131,21 @@ fieldset {
     margin: auto;
     text-align: center;
 }
+
+.title h5
+{
+   /* font-family:'Indie Flower'; */
+    font-weight: 300;
+    margin: auto;
+    text-align: center;
+}
+
+.title h2
+{
+    color: white;
+    font-family:'Indie Flower';
+    font-weight: 300;
+    margin: auto;
+    text-align: center;
+}
+

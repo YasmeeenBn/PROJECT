@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -22,7 +23,6 @@
     <!--Favicon-->
     <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 
-    <title> Offer's details</title>
   </head>
 
 <body>
@@ -67,36 +67,26 @@
 
     <div class="container" >
 
-      <form id="contact" action="insert.php" method="post">
+      <form id="contact" method="POST" enctype="multipart/form-data">
 
         <div class="title">
-          <h3>Tell Us More About Your Offers</h3>
+          <h3> Last STEP - Your Company's LOGO </h3>
         </div>
 
         <fieldset>
-          <label for="of_sujet">    </label><input placeholder="Subject of your offer" name="of_sujet" type="text" tabindex="1" required autofocus>
+              <div class="title">     
+                <h2>  yas </h2>   <!-- just to have space -->
+                <h5> Upload Your LOGO </h5>
+                <h2>  yas </h2>    <!-- just to have space -->
+              </div>
         </fieldset>
+       
+              
 
-        <fieldset>
-          <label for="of_datedebut">    </label><input placeholder="Start date" name="of_datedebut" type="text" tabindex="1" required autofocus>
-          </fieldset>
+      
 
-          <fieldset>
-            <label for="of_datefin">    </label><input placeholder="End date" name="of_datefin" type="text" tabindex="1" required autofocus>
-          </fieldset>
-
-          <fieldset>
-            <label for="of_duree">    </label><input placeholder="duration" name="of_duree" type="text" tabindex="1" required autofocus>
-          </fieldset>
-
-        <fieldset>
-          <label for="of_description">    </label><textarea placeholder="Details of your offer" name="of_description" tabindex="5" required></textarea>
-          </fieldset>
-
-
-        <fieldset>
-          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Send Offer</button>
-        </fieldset>
+        <!-- BOUTON -->
+        
 
         <p class="other">Plateform ENSIAS <a href="homepage\index.html" target="_blank" title="IWIMSTAGES">IWIMSTAGES</a></p>
       </form>

@@ -95,7 +95,7 @@
 
 
 <div class="main">
-    <h1>Offers it's magic haha db zouher khasso ichof hadchi lli kandir fih ana salit les modif so ghangolha lih (ghangulih ana pushit so khasni tandir push 3ad ngulha lih) </h1>
+    <h1>Offers  </h1>
     <ul class="cards">
     <?php  
             $res = $conn -> query($sqlselect);

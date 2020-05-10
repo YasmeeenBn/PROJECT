@@ -8,7 +8,7 @@
 
             try {
               $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-              echo "Connecté à $dbname sur $host avec succès.";
+             // echo "Connecté à $dbname sur $host avec succès.";
             } 
 
             catch (PDOException $e) {
@@ -39,9 +39,10 @@
             }
             else{
                 echo json_encode(array('result'=>'fail'));
-            }
+            } 
             var_dump($stmt);
             print_r($stmt->errorInfo());
+
 
     }
 

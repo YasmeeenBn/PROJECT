@@ -10,7 +10,7 @@
                 // echo "Connecté à $dbname sur $host avec succès.";
 
                // $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-               $query = "SELECT of_sujet, of_description, of_duree FROM offre";
+               $query = "SELECT of_sujet, of_description, of_duree,image FROM offre";
                 $stmt = $conn-> prepare($query);
                 $result = $stmt->execute();
 
@@ -109,7 +109,10 @@
 
                     <li class="cards_item">
                         <div class="card">
-                            <div class="card_image"><img src="https://images.pexels.com/photos/221164/pexels-photo-221164.jpeg"></div>
+                            <div class="card_image">
+                                      <img src="uploads/<?php echo $row['image']; ?>">
+                                     <!-- <img src="https://images.pexels.com/photos/221164/pexels-photo-221164.jpeg">       width="100" height="100" -->
+                            </div>
                             <div class="card_content">
                             <form action="" method="post">
                                 <tbody>
@@ -124,8 +127,10 @@
                             </div>
                         </div>
                     </li>
+
     <?php
                 }
+              
          }
     ?>
     </ul>

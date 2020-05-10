@@ -17,7 +17,7 @@
 
     
             // insert query
-            $sql = "INSERT INTO offre(of_sujet, of_description, of_datedebut, of_datefin, of_duree) values (:of_sujet, :of_description, :of_datedebut, :of_datefin, :of_duree) ";
+            $sql = "INSERT INTO offre(of_sujet, of_description, of_datedebut, of_datefin, of_duree) values (:of_sujet, :of_description, :of_datedebut, :of_datefin, :of_duree)   ";
             // prepare query for execution
             $stmt = $conn->prepare($sql);
             // posted values

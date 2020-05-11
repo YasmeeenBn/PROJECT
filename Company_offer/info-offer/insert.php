@@ -1,14 +1,10 @@
 <?php
-    // $host = 'localhost';
-    // $dbname = 'pfa';
-    // $username = 'root';
-    // $password = '';
+    $host = 'localhost';
+    $dbname = 'pfa';
+    $username = 'root';
+    $password = '';
 
-    
-    $host = 'https://databases.000webhost.com/';
-    $dbname = 'id13130634_stageproject';
-    $username = 'id13130634_yasmine';
-    $password = 'n7FM]c5<B_T>CP02';
+
 
     if(isset($_POST['submit'])){
 

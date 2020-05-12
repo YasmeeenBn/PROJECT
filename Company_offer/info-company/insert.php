@@ -43,6 +43,9 @@
             var_dump($stmt);
             print_r($stmt->errorInfo());
 
+            header("location:../info-offer/index.php?");
+
+
 
     }
 

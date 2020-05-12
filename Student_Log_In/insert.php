@@ -1,10 +1,12 @@
 <?php
-    include_once 'C:\wamp64\www\Yas\Classes\Class_admin.php';
-    include_once 'C:\wamp64\www\Yas\Classes\ClasseEtudiant.php';
+    
             $host = 'localhost';
             $dbname = 'pfa';
             $username = 'root';
             $password = '';
+
+            include_once '../Classes/Class_admin.php';
+    include_once '../Classes/ClasseEtudiant.php';
 
             $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
             $erreur = null;
@@ -18,10 +20,10 @@
                 $admin;
                 if(isset($_POST['et_email']) and isset($_POST['et_mdp'])){
                     // recuperer les donnees de l'admin pour savoir est ce que c'est lui qui veut se connecter
-                    $result = $conn->query('SELECT et_email, et_mdp from administrateur');
+                    $result = $conn->query('SELECT et_email,et_mdp from administrateur');
                     foreach($result as $row) {
                         if($row['et_email']==$_POST['et_email'] and $row['et_mdp']==$_POST['et_mdp']){
-                          //  $admin = Class_admin::construct1($row['ad_id'], $row['ad_nom'], $row['ad_prenom'], $row['et_email'], $row['et_mdp']);
+                          // $admin = Class_admin::construct1($row['ad_id'], $row['ad_nom'], $row['ad_prenom'], $row['et_email'], $row['et_mdp']);
                             $admin = Class_admin::construct1($row['et_email'], $row['et_mdp']);
 
                             $connecter=true;
@@ -42,6 +44,22 @@
                                 break;
                             }
                         }
+                        // special partie syivant
+                        $select = "select et_id from etudiant where et_email = ? and et_email = ?  LIMIT 0,1;";
+            
+                        $stmt2 = $conn->prepare($select);
+            
+                        $stmt2 -> bindParam(1, $et_email);
+                        $stmt2 -> bindParam(2, $et_mdp);
+                        
+            
+                          $stmt2->execute();
+                        $results = $stmt2->fetch();
+                        // $json = json_encode($results);
+                        echo $results['offre_id'];
+            
+                        header("location:../student_profile/index.php?id=". $results['offre_id'] ."");
+            
                     }
                     if($connecter){
                         session_start();
@@ -63,6 +81,9 @@
                         header("location:http://yas/student_log_in/index.php?erreur=$erreur");
                     }
                 }
+
+                
+          
             }
 
 ?>

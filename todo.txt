@@ -15,6 +15,9 @@ page des offres
  to do :
  ************************
  profil etudiants
+ admin and stuffs
+conn admin
+ nav bar pour student profile (check index )
 
 ************************************
 afficher la liste des etudiants avec les infos completes

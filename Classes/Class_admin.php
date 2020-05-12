@@ -1,18 +1,19 @@
 <?php
 class Class_admin{
-    public $id_admin;
-    public $nom;
-    public $prenom;
-    public $email;
-    public $mdp;
-    public static  function construct1($id_admin,$nom,$prenom,$email,$mdp)
+    // public $ad_id;
+    // public $ad_nom;
+    // public $ad_prenom;
+    public $et_email;
+    public $et_mdp;
+    // public static  function construct1($ad_id,$ad_nom,$ad_prenom,$et_email,$et_mdp)
+    public static  function construct1($et_email,$et_mdp)
     {
         $admin= new self();
-        $admin->id_admin=$id_admin;
-        $admin->nom=$nom;
-        $admin->prenom=$prenom;
-        $admin->email=$email;
-        $admin->mdp=$mdp;
+        // $admin->ad_id=$ad_id;
+        // $admin->ad_nom=$ad_nom;
+        // $admin->ad_prenom=$ad_prenom;
+        $admin->et_email=$et_email;
+        $admin->et_mdp=$et_mdp;
         return $admin;
     }
 }

@@ -105,6 +105,8 @@
         ?> 
 
       <!--   <form action="" method="post">
+
+      
             <ul class="cards"> -->
 
                     <li class="cards_item">
@@ -117,8 +119,8 @@
                             <form action="" method="post">
                                 <tbody>
                                 <tr>
-                                    <h2 class="card_title"><td> <?php  echo $row['of_sujet']?></td></h2>
-                                    <h2 class="card_title"><td> <?php  echo $row['of_duree']?></td></h2>
+                                    <h2 class="card_title"><td> <?php  echo 'Sujet :' .$row['of_sujet']?></td></h2>
+                                    <h2 class="card_title"><td> <?php  echo 'Duree :' .$row['of_duree']?></td></h2>
                                     <p class="card_text"><td> <?php  echo $row['of_description']?></td></p>
                                 </tr>
                                 </tbody>

@@ -1,27 +1,31 @@
-
-COMPANIES:
-**************************
+<!-- COMPANIES:
+************************** -->
 infos  company 
 infos  offer 
 page des offres
 
-
- ETUDIANT:
- *************************
+ <!-- ETUDIANT / admin :
+ ************************* -->
  student sign up
   Ajouter image
  student log in
+ conn admin
 
- to do :
- ************************
+ <!-- to do :
+ ************************ -->
  profil etudiants
  admin and stuffs
-conn admin
  nav bar pour student profile (check index )
 
-************************************
+<!-- demain -->  URGENT
+profil etudiant 
+
+
+ 
+
+<!-- ************************************
 afficher la liste des etudiants avec les infos completes
- ***********************************
+ *********************************** -->
              echo '<table width="70%" border="1" cellpadding="5" cellspacing="5">
                 <tr>
                     <th> name </th>
@@ -46,8 +50,8 @@ afficher la liste des etudiants avec les infos completes
         $statement ->execute(array(
             ':id'  => 1
         ))
-************************************ PROFIL
-************************************
+<!-- ************************************ PROFIL
+************************************ -->
     <body>
         <p>Dans le formulaire précédent, vous avez fourni les
         informations suivantes :</p>

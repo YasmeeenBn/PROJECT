@@ -6,7 +6,7 @@
             $password = '';
 
             include_once '../Classes/Class_admin.php';
-    include_once '../Classes/ClasseEtudiant.php';
+            include_once '../Classes/ClasseEtudiant.php';
 
             $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
             $erreur = null;
@@ -67,6 +67,7 @@
                         if($personne == 'administrateur'){
                             $_SESSION['administrateur'] = $administrateur;
                             header('location:http://yas/admin/index.php');
+
                         }
                         // la personne qui veut se connecter est un etudiant.
                         else if($personne == 'etudiant'){

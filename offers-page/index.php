@@ -10,7 +10,7 @@
                 // echo "Connecté à $dbname sur $host avec succès.";
 
                // $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-               $query = "SELECT of_sujet,of_description, of_duree,image FROM offre";
+               $query = "SELECT of_sujet,of_description, of_duree,image FROM offre where of_status = 1";
                 $stmt = $conn-> prepare($query);
                 $result = $stmt->execute();
 

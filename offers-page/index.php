@@ -95,24 +95,22 @@
 
 
 <div class="main">
-    <h1>Offers  </h1>
+    <h1> Offers  </h1>
     <ul class="cards">
     <?php  
             $res = $conn -> query($sqlselect);
             if ($res -> fetchColumn()>0){
                 foreach ($contacts as $row){
             
-        ?> 
+    ?>    
 
-      <!--   <form action="" method="post">
-
-      
+    <!-- <form action="" method="post">
             <ul class="cards"> -->
 
                     <li class="cards_item">
                         <div class="card">
                             <div class="card_image">
-                            <img src="../Company_offer/info-img/uploads/<?php echo $row['image']; ?>"> 
+                                <img src="../Company_offer/info-img/uploads/<?php echo $row['image']; ?>"> 
                                      <!--  <img src="https://images.pexels.com/photos/221164/pexels-photo-221164.jpeg">        width="100" height="100" 361.983×241.317-->
                             </div>
                             <div class="card_content">

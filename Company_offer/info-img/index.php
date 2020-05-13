@@ -17,7 +17,6 @@
         }
         
         if(isset($_POST['ok'])){
-
                 $folder ="uploads/"; 
                 $image = $_FILES['image']['name']; 
                 $path = $folder . $image ; 

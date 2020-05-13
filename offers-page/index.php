@@ -20,7 +20,7 @@
                 // $contacts = $stmt->fetchAll();
                 $contacts = $conn -> query($query);
     
-            }
+            } 
             catch (PDOException $e) {
               die("Impossible de se connecter à la base de données $dbname :" );
             }

@@ -3,32 +3,26 @@
     $dbname = 'pfa';
     $username = 'root';
     $password = '';
-
+    $et_id = $_GET['id'];
             try {
-              $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-            //  echo "Connecté à $dbname sur $host avec succès.";
+                $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+                // echo "Connecté à $dbname sur $host avec succès.";
 
-              $query = "SELECT et_nom, et_prenom, et_naissance, et_tele, et_email, et_annee from etudiant";
-                $stmt = $conn-> prepare($query);
+               // $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+               $query = "SELECT et_nom, et_prenom, et_naissance, et_tele, et_email, et_annee from etudiant where et_id:=et_id";
+               $stmt = $conn-> prepare($query);
                 $result = $stmt->execute();
 
-                // $et_nom = $_POST['et_nom']; 
-                // $et_prenom= $_POST['et_prenom'];
-                // $et_email = $_POST['et_email'];
-                // $et_annee = $_POST['et_annee'];
-                // $et_naissance = $_POST['et_naissance'];
-                // $et_tele = $_POST['et_tele'];
-
-                // $sqlselect = "SELECT count(*) from offre";
-
+                // $sqlselect = "SELECT count(*) from etudiant";
                 // $contacts = $stmt->fetchAll();
-                // $contacts = $conn -> query($query);
-                //to get the same person
-
-            } 
+                $contacts = $conn -> query($query);
+    
+            }
             catch (PDOException $e) {
               die("Impossible de se connecter à la base de données $dbname :" );
             }
+
+            
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,8 +85,68 @@
         </div>
       </nav>
     </div>
-   
 
+<div class="bg">
+
+<div class="container">
+
+    <form id="contact" action="" method="post">
+
+        <div class="title">
+            <h3>Personal Informations</h3>
+        </div>
+        <?php  
+                $res = $conn -> query($query);
+                if ($res -> fetchColumn()>0){
+                    foreach ($contacts as $row){
+        ?> 
+        <fieldset>
+             <label for="et_nom"> </label> <?php  echo $et_nom?>
+            <!-- <input placeholder="Last Name" name="et_nom" type="text" tabindex="1" required autofocus>  -->
+        </fieldset>
+
+        <fieldset>
+            <label for="et_prenom"> </label> <?php  echo $row['et_prenom']?>
+        </fieldset>
+
+        <fieldset>
+            <label for="et_email"> </label><input placeholder="Your Email Address" name="et_email" type="email" tabindex="3" required>
+        </fieldset>
+
+        <fieldset>
+            <label for="et_mdp"> </label><input placeholder="Your password" name="et_mdp" type="text" tabindex="2" required>
+        </fieldset>
+
+        <fieldset>
+            <label for="et_annee"> </label><input placeholder="Are you in First/Second/third year ?" name="et_annee" type="text" tabindex="2"
+                required>
+        </fieldset>
+
+        <fieldset>
+            <label for="et_naissance"> Your birth date </label> :<input placeholder="Your birth date" name="et_naissance" type="date" tabindex="2" required>
+        </fieldset>
+
+        <fieldset>
+            <label for="et_tele"> </label><input placeholder="Your Phone Number" name="et_tele" type="tel" tabindex="4" required>
+        </fieldset>
+
+        <fieldset>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">SIGN UP <a
+                    href=""></a></button>
+        </fieldset>
+
+        <p class="other">Plateform ENSIAS <a href="homepage\index.html" target="_blank" title="IWIMSTAGES">IWIMSTAGES</a></p>
+    </form>
+
+</div>
+
+</div>
+   
+<?php
+                }
+              
+         }
+?>
 
 
 

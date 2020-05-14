@@ -4,13 +4,11 @@
     $username = 'root';
     $password = '';
 
-
-
     if(isset($_POST['submit'])){
 
             try {
               $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-              echo "Connecté à $dbname sur $host avec succès.";
+             //  echo "Connecté à $dbname sur $host avec succès.";
             } 
 
             catch (PDOException $e) {
@@ -19,7 +17,7 @@
 
     
             // insert query
-            $sql = "INSERT INTO offre(of_sujet, of_description, of_datedebut, of_datefin, of_duree) values (:of_sujet, :of_description, :of_datedebut, :of_datefin, :of_duree);";
+            $sql = "INSERT INTO offre (of_sujet, of_description, of_datedebut, of_datefin, of_duree) values (:of_sujet, :of_description, :of_datedebut, :of_datefin, :of_duree);";
             // prepare query for execution
             $stmt = $conn->prepare($sql);
             // posted values
@@ -45,7 +43,7 @@
             var_dump($stmt);
             print_r($stmt->errorInfo());
 
-            $select = "select offre_id from offre where of_sujet = ? and of_description = ? and of_datedebut = ? and of_datefin = ? and of_duree = ? LIMIT 0,1;";
+            $select = "SELECT of_id from offre where of_sujet = ? and of_description = ? and of_datedebut = ? and of_datefin = ? and of_duree = ? LIMIT 0,1;";
             
             $stmt2 = $conn->prepare($select);
 
@@ -58,9 +56,9 @@
 	          $stmt2->execute();
             $results = $stmt2->fetch();
             // $json = json_encode($results);
-            echo $results['offre_id'];
+            echo $results['of_id'];
+            header("location:../info-img/index.php?id=". $results['of_id'] ."");
 
-            header("location:../info-img/index.php?id=". $results['offre_id'] ."");
 
     }        
 

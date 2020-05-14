@@ -3,9 +3,8 @@
     $dbname = 'pfa';
     $username = 'root';
     $password = '';
-    $offre_id = $_GET['id'];
-    // echo $offre_id;
-
+    $of_id = $_GET['id'];
+    // echo $of_id;
 
         try {
               $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -26,24 +25,20 @@
                 $ext=pathinfo($filename, PATHINFO_EXTENSION);
 
                 if(!in_array($ext,$allowed) ) 
-
                 { 
-
-                echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
-
+                      echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
                 }
 
                 else{ 
                       move_uploaded_file( $_FILES['image'] ['tmp_name'], $path); 
                       // UPDATE `offre` SET `image` = 'ciel.jpgioaiozdj' WHERE `offre`.`offre_id` = 4 
-                      $sth=$conn->prepare("UPDATE offre SET image = :image WHERE offre_id = :offre_id "); 
-                      $sth->bindParam(':offre_id',$offre_id);
+                      $sth=$conn->prepare("UPDATE offre SET image = :image WHERE of_id = :of_id "); 
+                      $sth->bindParam(':of_id',$of_id);
                       $sth->bindParam(':image',$image);
                       $sth->execute();
                 } 
 
-} 
-     
+}    
 
 ?> 
 <!DOCTYPE html>
@@ -138,16 +133,6 @@
         </form>
         </fieldset>
 
-      <!-- to see the pic   <a href="select.php">See Image</a>   -->
-
-      <!--   </fieldset>
-            <fieldset>  
-          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">SEND OFFER</button>
-        </fieldset>
-
-
-
-        <p class="other">Plateform ENSIAS <a href="homepage\index.html" target="_blank" title="IWIMSTAGES">IWIMSTAGES</a></p> -->
     </form>
 
     </div>

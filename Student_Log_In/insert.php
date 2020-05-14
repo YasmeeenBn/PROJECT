@@ -43,9 +43,9 @@
                                 $personne='etudiant';
                                 break;
                             }
-                        }
+                        
                         // special partie syivant
-                        $select = "select et_id from etudiant where et_email = ? and et_email = ?  LIMIT 0,1;";
+                        $select = "SELECT et_id from etudiant where et_email = ? and et_email = ?  LIMIT 0,1;";
             
                         $stmt2 = $conn->prepare($select);
             
@@ -56,17 +56,16 @@
                           $stmt2->execute();
                         $results = $stmt2->fetch();
                         // $json = json_encode($results);
-                        echo $results['offre_id'];
-            
-                        header("location:../student_profile/index.php?id=". $results['offre_id'] ."");
-            
+                        echo $results['et_id'];
+                        header("location:../student_profile/index.php?id=". $results['et_id'] ."");
+                        }
                     }
                     if($connecter){
                         session_start();
                         // la personne qui veut se connecter est'un admin.
                         if($personne == 'administrateur'){
                             $_SESSION['administrateur'] = $administrateur;
-                            header('location:http://yas/admin/index.php');
+                            header('location:http://yas/Ad_Students_Active/');
 
                         }
                         // la personne qui veut se connecter est un etudiant.
@@ -82,9 +81,7 @@
                         header("location:http://yas/student_log_in/index.php?erreur=$erreur");
                     }
                 }
-
-                
-          
+            
             }
 
 ?>

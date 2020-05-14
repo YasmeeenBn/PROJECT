@@ -44,6 +44,8 @@
                 echo json_encode(array('result'=>'success'));
             }else{
                 echo json_encode(array('result'=>'fail'));
-            }    
+            }   
+            var_dump($stmt);
+            print_r($stmt->errorInfo()); 
           }
 ?>

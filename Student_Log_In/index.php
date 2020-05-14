@@ -25,7 +25,7 @@
     <!--Favicon-->
     <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 
-    <title> Log In</title>
+    <title> Log In </title>
   </head>
 
 <body>
@@ -84,20 +84,12 @@
           <label for="et_mdp"></label><input placeholder="Your Password" name="et_mdp" type="text" tabindex="2" required autofocus>
         </fieldset>
 
-         <!-- <fieldset>
-            <input placeholder="Remember me" type="checkbox" tabindex="3">
-            <label>Remember me</label>
-        </fieldset>  -->
-
         <fieldset>
           <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Log in</button>
         </fieldset>
         <p class="other">NEW HERE ?  <a href="    " target="_blank" title="IWIMSTAGES">Sign Up </a></p>
 
         <p class="other">Plateform ENSIAS <a href="    " target="_blank" title="IWIMSTAGES">IWIMSTAGES</a></p>
-
-       
-
 
       </form>
 

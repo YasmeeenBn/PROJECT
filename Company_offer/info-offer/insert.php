@@ -3,7 +3,6 @@
     $dbname = 'pfa';
     $username = 'root';
     $password = '';
-
     if(isset($_POST['submit'])){
 
             try {
@@ -58,8 +57,5 @@
             // $json = json_encode($results);
             echo $results['of_id'];
             header("location:../info-img/index.php?id=". $results['of_id'] ."");
-
-
     }        
-
 ?>

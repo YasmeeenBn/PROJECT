@@ -5,7 +5,6 @@
     $password = '';
     $of_id = $_GET['id'];
     // echo $of_id;
-
         try {
               $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
             //echo "Connecté à $dbname sur $host avec succès.";

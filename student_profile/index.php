@@ -6,28 +6,29 @@
     $et_id = $_GET['id'];
             try {
                 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-                // echo "Connecté à $dbname sur $host avec succès.";
-
-               // $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-               $query = "SELECT et_nom, et_prenom, et_naissance, et_tele, et_email, et_annee from etudiant where et_id:=et_id";
-               $stmt = $conn-> prepare($query);
-                $result = $stmt->execute();
-
-                // $sqlselect = "SELECT count(*) from etudiant";
-                // $contacts = $stmt->fetchAll();
-                $contacts = $conn -> query($query);
-    
+              //   echo "Connecté à $dbname sur $host avec succès.";
+                // $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+               //$conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
             }
             catch (PDOException $e) {
               die("Impossible de se connecter à la base de données $dbname :" );
             }
 
+            $query = "SELECT et_nom, et_prenom, et_naissance, et_tele, et_email, et_annee from etudiant where et_id = :et_id";
+            $stmt = $conn-> prepare($query);
+            $stmt->bindParam(':et_id', $et_id);
+            $stmt->execute();
+            // $contacts = $conn -> query($query);
             
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            
+                    
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -96,44 +97,38 @@
             <h3>Personal Informations</h3>
         </div>
         <?php  
-                $res = $conn -> query($query);
-                if ($res -> fetchColumn()>0){
-                    foreach ($contacts as $row){
+                // $res = $conn -> query($query);
+                // if ($res->fetchColumn()>0){
+                //     foreach ($contacts as $row){
         ?> 
         <fieldset>
-             <label for="et_nom"> </label> <?php  echo $et_nom?>
+             <label for="et_nom"> </label> <?php  echo "Last Name: " . $row['et_nom'] ?>
             <!-- <input placeholder="Last Name" name="et_nom" type="text" tabindex="1" required autofocus>  -->
         </fieldset>
 
         <fieldset>
-            <label for="et_prenom"> </label> <?php  echo $row['et_prenom']?>
+            <label for="et_prenom"> </label> <?php echo "First Name: " . $row['et_prenom']?>
+        </fieldset>
+
+        
+        <fieldset>
+            <label for="et_naissance"> </label> <?php echo "Date of Birth: " . $row['et_naissance']?>
         </fieldset>
 
         <fieldset>
-            <label for="et_email"> </label><input placeholder="Your Email Address" name="et_email" type="email" tabindex="3" required>
+            <label for="et_tele"> </label> <?php echo "Phone Number: " . $row['et_tele']?>
         </fieldset>
 
+        
         <fieldset>
-            <label for="et_mdp"> </label><input placeholder="Your password" name="et_mdp" type="text" tabindex="2" required>
+            <label for="et_email"> </label> <?php echo "Email Adress: " . $row['et_email']?>
         </fieldset>
 
+        
         <fieldset>
-            <label for="et_annee"> </label><input placeholder="Are you in First/Second/third year ?" name="et_annee" type="text" tabindex="2"
-                required>
+            <label for="et_annee"> </label> <?php echo "Year of integration: " . $row['et_annee']?>
         </fieldset>
 
-        <fieldset>
-            <label for="et_naissance"> Your birth date </label> :<input placeholder="Your birth date" name="et_naissance" type="date" tabindex="2" required>
-        </fieldset>
-
-        <fieldset>
-            <label for="et_tele"> </label><input placeholder="Your Phone Number" name="et_tele" type="tel" tabindex="4" required>
-        </fieldset>
-
-        <fieldset>
-            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">SIGN UP <a
-                    href=""></a></button>
-        </fieldset>
 
         <p class="other">Plateform ENSIAS <a href="homepage\index.html" target="_blank" title="IWIMSTAGES">IWIMSTAGES</a></p>
     </form>
@@ -143,9 +138,9 @@
 </div>
    
 <?php
-                }
+        //         }
               
-         }
+        //  }
 ?>
 
 

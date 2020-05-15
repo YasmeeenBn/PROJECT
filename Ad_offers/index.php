@@ -24,12 +24,8 @@
             catch (PDOException $e) {
               die("Impossible de se connecter à la base de données $dbname :" );
             }
-
-          
           // var_dump($stmt);
-          // print_r($stmt->errorInfo());
-
-        
+          // print_r($stmt->errorInfo());  
 ?>
 
 
@@ -93,20 +89,9 @@
               
             </ul>
             <div class="card-body" style="color: white;">
-              <!-- <a href="#" class="card-link" style="margin-right: 50px;">Accept</a> -->
-              <!-- <a href="#" class="card-link">Decline</a> -->
-
-              <!-- <a href="editstatus.php?update=" class="btn btn-primary btn-sm"> Accept </a> -->
               
-              <!-- <a href="editstatus.php?update=" class="btn btn-primary btn-sm"> Decline </a> -->
-
-              <!-- <button class="btn card_btn" type="submit"> Accept</button>
-
-              <button class="btn card_btn" type="submit"> Decline</button> -->
-
             </div>
         </tbody>
-        <!-- </form> -->
 
       </div>
 

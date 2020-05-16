@@ -9,7 +9,7 @@
                 // echo "Connecté à $dbname sur $host avec succès.";
 
                // $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-                $query = "SELECT et_id, et_nom, et_prenom,et_status,et_email, et_annee FROM etudiant where et_status = 0;";
+                $query = "SELECT et_id, et_nom, et_prenom,et_email, et_annee FROM etudiant where et_status = 0;";
 
                 // $contacts = $stmt->fetchAll();
                 $contacts = $conn -> query($query);
@@ -28,7 +28,6 @@
                       $sth->execute();
 
                       header("location:index.php");
-            }
-            
-        
+            }   
 ?>
+

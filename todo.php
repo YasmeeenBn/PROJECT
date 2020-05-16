@@ -13,12 +13,6 @@ page des offres
 
  <!-- to do :
  ************************ -->
- profil etudiants
- admin and stuffs
- nav bar pour student profile (check index )
-
-<!-- demain -->  URGENT
-profil etudiant 
 
 
  

@@ -14,7 +14,7 @@
               die("Impossible de se connecter à la base de données $dbname :" );
             }
 
-            $query = "SELECT et_nom, et_prenom, et_naissance, et_tele, et_email, et_annee from etudiant where et_id = :et_id";
+            $query = "SELECT et_nom, et_prenom, et_naissance, et_tele, et_email, et_annee, et_cne from etudiant where et_id = :et_id";
             $stmt = $conn-> prepare($query);
             $stmt->bindParam(':et_id', $et_id);
             $stmt->execute();
@@ -128,6 +128,12 @@
         <fieldset>
             <label for="et_annee"> </label> <?php echo "Year of integration: " . $row['et_annee']?>
         </fieldset>
+
+        <fieldset>
+            <label for="et_cne"> </label> <?php echo "CNE: " . $row['et_cne']?>
+        </fieldset>
+
+
 
 
         <p class="other">Plateform ENSIAS <a href="homepage\index.html" target="_blank" title="IWIMSTAGES">IWIMSTAGES</a></p>

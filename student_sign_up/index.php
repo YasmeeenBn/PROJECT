@@ -103,13 +103,16 @@
                 </fieldset>
 
                 <fieldset>
-                    <label for="et_naissance"> Your birth date </label> :<input placeholder="Your birth date" name="et_naissance" type="date" tabindex="2" required>
+                    <label for="et_naissance"></label> <input placeholder="Your birth date" name="et_naissance" type="date" tabindex="2" required>
                 </fieldset>
 
                 <fieldset>
                     <label for="et_tele"> </label><input placeholder="Your Phone Number" name="et_tele" type="tel" tabindex="4" required>
                 </fieldset>
 
+                <fieldset>
+                    <label for="et_cne"> </label><input placeholder="Your CNE" name="et_cne" type="cne" tabindex="4" required>
+                </fieldset>
                 <!-- <fieldset>
           <textarea placeholder="Describe your offer here...." tabindex="5" required></textarea>
         </fieldset> -->

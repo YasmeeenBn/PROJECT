@@ -9,7 +9,7 @@
                 // echo "Connecté à $dbname sur $host avec succès.";
 
                // $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-               $query = "SELECT et_id, et_nom, et_prenom,et_status,et_email, et_annee FROM etudiant where et_status = 1";
+               $query = "SELECT et_id, et_nom, et_prenom,et_email, et_annee FROM etudiant where et_status = 1";
                 $stmt = $conn-> prepare($query);
                 $result = $stmt->execute();
 
@@ -60,12 +60,13 @@
             </li> -->
             <li><a href="http://yas/Ad_Students_Active/"><span class="fa fa-money"></span>Active Students</a></li>
             <li><a href="http://yas/Ad_Students_Suspended/"><span class="fa fa-money"></span>Suspended Stud</a></li>
-            <li><a href="http://yas/Ad_offers/"><span class="fa fa-money"></span>Offers</a></li>
+            <li><a href="http://yas/Ad_offers/"><span class="fa fa-money"></span>Offers Accepted</a></li>
             <li><a href="http://yas/Ad_demands/"><span class="fa fa-user-o"></span>Demands</a></li>
+            <li><a href="http://yas/Ad_candidates/"><span class="fa fa-money"></span>Candidates</a></li>
             <li><a href="contact_users.php"><span class="fa fa-envelope-o"></span>Contact Users</a></li>
             <li><a href="log_out.php"><span class="fa fa-envelope-o"></span>Log Out</a></li>
         </ul>
-        
+      
       </div>
 
     </div>
@@ -80,7 +81,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Year of study</th>
                     <!-- <th scope="col">Phone Number</th> -->
-                    <th scope="col">Status</th>
+                    <th scope="col">Candidate</th>
                     <th scope="col">Change Status</th>
                 </tr>
             </thead>
@@ -98,13 +99,12 @@
                     <td><?php  echo $row['et_prenom']?> <?php  echo "  "?><?php  echo $row['et_nom']?></td>
                     <td><?php  echo $row['et_email']?></td>
                     <td><?php  echo $row['et_annee']?></td>
-                    <td><?php  echo $row['et_status']?></td>
+                    
                     <td>
                         <a href="editstatus.php?update=<?php echo $row['et_id']; ?>" class="btn btn-primary btn-sm"> Suspend </a>
                     </td>
                     <!-- <td><button type="submit" class="btn btn-primary btn-sm">Suspend</button></td>   -->
                 </tr>
-               
             </tbody>
 
             <?php

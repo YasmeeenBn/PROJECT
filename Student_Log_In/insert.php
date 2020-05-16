@@ -53,7 +53,7 @@
                             echo $results['et_id'];
                         
                             header("location:http://yas/student_profile/index.php?id=". $results['et_id'] ."");
-                                break;
+                            break;
                             } 
                     }
                 

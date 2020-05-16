@@ -10,7 +10,7 @@
                 // echo "Connecté à $dbname sur $host avec succès.";
 
                // $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-               $query = "SELECT of_sujet,of_description, image, of_id, of_duree FROM offre where of_status = 1";
+               $query = "SELECT of_sujet, image, of_id, of_duree FROM offre where of_status = 1";
                 $stmt = $conn-> prepare($query);
                 $result = $stmt->execute();
 
@@ -54,11 +54,11 @@
         </div>
 
         <ul class="sideMenu">
-            <li><a href="http://yas/Ad_Students_Active/"><span class="fa fa-money"></span>Active Students</a></li>
+        <li><a href="http://yas/Ad_Students_Active/"><span class="fa fa-money"></span>Active Students</a></li>
             <li><a href="http://yas/Ad_Students_Suspended/"><span class="fa fa-money"></span>Suspended Stud</a></li>
-            <li><a href="http://yas/Ad_offers/"><span class="fa fa-money"></span>Offers</a></li>
+            <li><a href="http://yas/Ad_offers/"><span class="fa fa-money"></span>Offers Accepted</a></li>
             <li><a href="http://yas/Ad_demands/"><span class="fa fa-user-o"></span>Demands</a></li>
-            <li><a href="contact_users.php"><span class="fa fa-envelope-o"></span>Contact Users</a></li>
+            <li><a href="http://yas/Admin_Contact/"><span class="fa fa-envelope-o"></span>Contact Users</a></li>
             <li><a href="log_out.php"><span class="fa fa-envelope-o"></span>Log Out</a></li>
         </ul>
         
@@ -85,7 +85,7 @@
             </div>
             <ul class="list-group list-group-flush" style="color: royalblue;">
               <li class="list-group-item"><?php  echo 'Duree en mois :' .$row['of_duree']?></li>
-              <li class="list-group-item"><?php  echo $row['of_description']?></li>
+ 
               
             </ul>
             <div class="card-body" style="color: white;">

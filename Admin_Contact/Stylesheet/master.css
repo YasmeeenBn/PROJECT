@@ -133,10 +133,14 @@ img {
     font-size: small;
 }
 
-.bot-container
+.header
 {
-    margin-left: 200px;
     margin-top: 150px;
-    font-size: 15.3px;
+    margin-left: 250px;
+}
+.contact
+{
+    margin-top: 50px;
+    margin-left: 250px;
 }
 

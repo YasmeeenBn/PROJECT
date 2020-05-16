@@ -13,6 +13,7 @@ page des offres
 
  <!-- to do :
  ************************ -->
+about page 
 
 
  

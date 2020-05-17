@@ -74,10 +74,10 @@
                   <a class="nav-link" href="">About</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="">Companies</a>
+                  <a class="nav-link" href="http://yas/offers-page/">Offers page</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="">Offers</a>
+                  <a class="nav-link" href="http://yas/Student_demands/">demands</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="http://yas/contact_Admin/">Contact Us</a>

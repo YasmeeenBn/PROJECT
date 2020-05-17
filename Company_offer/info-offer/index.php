@@ -3,6 +3,7 @@
     $dbname = 'pfa';
     $username = 'root';
     $password = '';
+
     if(isset($_POST['submit'])){
 
             try {
@@ -13,7 +14,6 @@
             catch (PDOException $e) {
               die("Impossible de se connecter à la base de données $dbname :" );
             }
-
     
             // insert query
             $sql = "INSERT INTO offre (of_sujet, of_description, of_datedebut, of_datefin, of_duree) values (:of_sujet, :of_description, :of_datedebut, :of_datefin, :of_duree);";

@@ -4,7 +4,7 @@
     $dbname = 'pfa';
     $username = 'root';
     $password = '';
-
+    
             try {
                 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
                 // echo "Connecté à $dbname sur $host avec succès.";
@@ -19,11 +19,11 @@
 
                 // $contacts = $stmt->fetchAll();
                 $contacts = $conn -> query($query);
-    
             } 
             catch (PDOException $e) {
               die("Impossible de se connecter à la base de données $dbname :" );
             }
+        
         
 ?>
 
@@ -122,6 +122,7 @@
                             </form>
 
                             <button class="btn card_btn" type="submit"> Postuler </button>
+
                             </div>
                         </div>
                     </li>

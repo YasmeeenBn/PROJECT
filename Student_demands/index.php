@@ -3,26 +3,31 @@
     $dbname = 'pfa';
     $username = 'root';
     $password = '';
-    $et_id = $_GET['id'];
+    // include "editstatus.php";
+
             try {
                 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-              //   echo "Connecté à $dbname sur $host avec succès.";
-                // $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-               //$conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+                // echo "Connecté à $dbname sur $host avec succès.";
+
+               // $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+               $query = "SELECT of_sujet, image, of_id, of_duree FROM offre where of_status = 1";
+                $stmt = $conn-> prepare($query);
+                $result = $stmt->execute();
+
+                $sqlselect = "SELECT count(*) from offre";
+
+
+                // $contacts = $stmt->fetchAll();
+                $contacts = $conn -> query($query);
+    
             }
             catch (PDOException $e) {
               die("Impossible de se connecter à la base de données $dbname :" );
             }
-
-            $query = "SELECT et_nom, et_prenom, et_naissance, et_tele, et_email, et_annee, et_cne from etudiant where et_id = :et_id";
-            $stmt = $conn-> prepare($query);
-            $stmt->bindParam(':et_id', $et_id);
-            $stmt->execute();
-            // $contacts = $conn -> query($query); 
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            
-                  
+          // var_dump($stmt);
+          // print_r($stmt->errorInfo());  
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,18 +104,19 @@
 			<th><h1>Offer's Subject</h1></th>
 			<th><h1>Start Date</h1></th>
             <th><h1>End Date</h1></th>
-            <th><h1>Duration</h1></th>
 		</tr>
     </thead>
 
     <form action="" method="post">
         <tbody>
             <tr>
-                <td>Google</td>
-                <td>9518</td>
-                <td>6369</td>
-                <td>01:32:50</td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
             </tr>
         </tbody>
     </form>
 </table>
+</body>
+</html>

@@ -40,21 +40,32 @@
                                 $connecter=true;
                                 $personne='etudiant';
                                 // special partie syivant
-                            $select = "SELECT et_id from etudiant where et_email = ? and et_mdp = ?;";
-                            $stmt2 = $conn->prepare($select);
-                            // $stmt2 -> bindParam(1, $et_id);
-                            $stmt2 -> bindParam(1, $_POST['et_email']);
-                            $stmt2 -> bindParam(2, $_POST['et_mdp']);
+    // **********************************************************************************************************************
+                                $select = "SELECT et_id, et_status from etudiant where et_email = ? and et_mdp = ?;";
+                                $stmt2 = $conn->prepare($select);
+                                // $stmt2 -> bindParam(1, $et_id);
+                                $stmt2 -> bindParam(1, $_POST['et_email']);
+                                $stmt2 -> bindParam(2, $_POST['et_mdp']);
+                                
+                                $stmt2->execute();
+                                $results = $stmt2->fetch();
+                                // var_dump($results);
+                                // $json = json_encode($results);
+                                echo $results['et_id'];
+                                echo $results['et_status'];
                             
-                            $stmt2->execute();
-                            $results = $stmt2->fetch();
-                            // var_dump($results);
-                            // $json = json_encode($results);
-                            echo $results['et_id'];
-                        
-                            header("location:http://yas/student_profile/index.php?id=". $results['et_id'] ."");
-                            break;
+                            if ($results['et_status'] == 1) {
+                                echo $results['et_id'];
+                                header("location:http://yas/student_profile/index.php?id=". $results['et_id'] ."");
+                                break;
                             } 
+                            else {
+                                header("location:http://yas/accesdenied/");
+                                break;
+                            } 
+                                
+                        }
+
                     }
                 
                     if($connecter){
@@ -67,9 +78,20 @@
                         // la personne qui veut se connecter est un etudiant.
                         else if($personne == 'etudiant'){
                             $_SESSION['etudiant'] = $etudiant;
-                            header("location:http://yas/student_profile/index.php?id=". $results['et_id'] ."");
+                            if ($results['et_status'] == 1) {
+                                echo $results['et_id'];
+                                header("location:http://yas/student_profile/index.php?id=". $results['et_id'] ."");
+                                
+                            } 
+                            else {
+                                header("location:http://yas/accesdenied/");
+                                
+                            } 
+                            // header("location:http://yas/student_profile/index.php?id=". $results['et_id'] ."");
                     }      
-                        }                                             
+                        }   
+   // **********************************************************************************************************************
+                                          
                     }
                     else{
                         $erreur = 'Les champs (mail, password) ne doivent pas etre vides!' ;

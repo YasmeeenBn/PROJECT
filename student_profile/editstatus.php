@@ -21,4 +21,7 @@
             // $contacts = $conn -> query($query);
             
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            // *************************************************************************************************
+            header("http://yas/Student_demands/");
         } 
+        

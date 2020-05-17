@@ -23,12 +23,7 @@
         </div>
 
         <ul class="sideMenu">
-            <li><a href="javascript:void(0)" class="has-submenu"><span class="fa fa-table"></span>Students</a>
-                <ul class="submenu">
-                    <li><a href="index.php?c=product&a=list01"><span class="fa fa-list"></span>Active Students</a></li>
-                    <li><a href="index.php?c=product&a=list02"><span class="fa fa-tags"></span>Suspended Students</a></li>
-                </ul>
-            </li>
+
             <li><a href="http://yas/Ad_Students_Active/"><span class="fa fa-money"></span>Active Students</a></li>
             <li><a href="http://yas/Ad_Students_Suspended/"><span class="fa fa-money"></span>Suspended Stud</a></li>
             <li><a href="http://yas/Ad_offers/"><span class="fa fa-money"></span>Offers Accepted</a></li>

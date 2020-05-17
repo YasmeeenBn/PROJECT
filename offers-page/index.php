@@ -23,6 +23,10 @@
             catch (PDOException $e) {
               die("Impossible de se connecter à la base de données $dbname :" );
             }
+            if (isset($_POST['submit'])){
+
+                header("http://yas/Student_demands/");
+            }
         
         
 ?>
@@ -117,6 +121,7 @@
                                     <h2 class="card_title"><td> <?php  echo 'Sujet :' .$row['of_sujet']?></td></h2>
                                     <h2 class="card_title"><td> <?php  echo 'Duree :' .$row['of_duree']?></td></h2>
                                     <p class="card_text"><td> <?php  echo $row['of_description']?></td></p>
+                                    
                                 </tr>
                                 </tbody>
                             </form>

@@ -3,29 +3,25 @@
     $dbname = 'pfa';
     $username = 'root';
     $password = '';
-    // include "editstatus.php";
-
+    $et_id = $_GET['id'];
             try {
                 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-                // echo "Connecté à $dbname sur $host avec succès.";
-
-               // $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-               $query = "SELECT of_sujet, image, of_id, of_duree FROM offre where of_status = 1";
-                $stmt = $conn-> prepare($query);
-                $result = $stmt->execute();
-
-                $sqlselect = "SELECT count(*) from offre";
-
-
-                // $contacts = $stmt->fetchAll();
-                $contacts = $conn -> query($query);
-    
+              //   echo "Connecté à $dbname sur $host avec succès.";
+                // $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+               //$conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
             }
             catch (PDOException $e) {
               die("Impossible de se connecter à la base de données $dbname :" );
             }
-          // var_dump($stmt);
-          // print_r($stmt->errorInfo());  
+
+            $query = "SELECT of_id, of_sujet,of_datedebut,of_datefin,of_description from offre where of_id = :of_id";
+            $stmt = $conn-> prepare($query);
+            $stmt->bindParam(':of_id', $of_id);
+            $stmt->execute();
+            // $contacts = $conn -> query($query);
+            
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                   
 ?>
 
 <!DOCTYPE html>
@@ -96,24 +92,26 @@
     </div>
 
 <h1><span class="blue">&lt;</span>demands<span class="blue">&gt;</span> <span class="yellow">Companies</pan></h1>
-
+<p> </p>
+<p> </p>
 <table class="container">
 	<thead>
 		<tr>
-			<th><h1>Name of Company</h1></th>
 			<th><h1>Offer's Subject</h1></th>
 			<th><h1>Start Date</h1></th>
             <th><h1>End Date</h1></th>
+            <th><h1>Offer's Description</h1></th>
+
 		</tr>
     </thead>
 
     <form action="" method="post">
         <tbody>
             <tr>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
+                <td> <?php  $row['of_sujet'] ?> </td>
+                <td>  <?php  $row['of_datedebut'] ?></td>
+                <td> <?php  $row['of_datefin'] ?> </td>
+                <td> <?php  $row['of_description'] ?> </td>
             </tr>
         </tbody>
     </form>

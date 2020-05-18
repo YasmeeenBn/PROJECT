@@ -81,7 +81,33 @@
                                 $company = Class_company::construct3($row['et_email'], $row['et_mdp']);
                                 $connecter=true;
                                 $personne='company';
+                                
+                                
+                                $select = "SELECT e_id, en_status from entreprise where et_email = ? and et_mdp = ?;";
+                                $stmt2 = $conn->prepare($select);
+                                // $stmt2 -> bindParam(1, $et_id);
+                                $stmt2 -> bindParam(1, $_POST['et_email']);
+                                $stmt2 -> bindParam(2, $_POST['et_mdp']);
+                                
+                                $stmt2->execute();
+                                $results = $stmt2->fetch();
+                                // var_dump($results);
+                                // $json = json_encode($results);
+                                echo $results['e_id'];
+                                echo $results['en_status'];
+                            
+                            if ($results['en_status'] == 1) {
+                                echo $results['e_id'];
+                                header("location:http://yas/Company_profile/index.php?id=". $results['e_id'] ."");
+                                // header("location:http://yas/Student_demands/index.php?id=". $results['et_id'] .""); //pour entrer dans la page des demandes de cet etudiant
+
                                 break;
+                            } 
+                            else {
+                                header("location:http://yas/accesdenied/");
+                                break;
+                            } 
+
                             }
                         }
                     }
@@ -109,7 +135,16 @@
                         } 
                         else if($personne == 'company'){
                             $_SESSION['company'] = $company;
-                            header('location:');
+                            if ($results['en_status'] == 1) {
+                                echo $results['e_id'];
+                                header("location:http://yas/Company_profile/index.php?id=". $results['e_id'] ."");
+                                
+                            } 
+                            else {
+                                header("location:http://yas/accesdenied/");
+                                
+                            } 
+                            
                         }
              
                         }   

@@ -14,7 +14,7 @@
               die("Impossible de se connecter à la base de données $dbname :" );
             }
 
-            $query = "SELECT et_nom, et_prenom, et_naissance, et_tele, et_email, et_annee, et_cne from etudiant where et_id = :et_id";
+            $query = "SELECT et_nom, et_prenom, et_naissance, et_tele, et_email, et_annee, et_cne, et_link from etudiant where et_id = :et_id";
             $stmt = $conn-> prepare($query);
             $stmt->bindParam(':et_id', $et_id);
             $stmt->execute();
@@ -130,6 +130,10 @@
 
         <fieldset>
             <label for="et_cne"> </label> <?php echo "CNE: " . $row['et_cne']?>
+        </fieldset>
+
+        <fieldset>
+            <label for="et_link"> </label> <?php echo "LINKEDIN: " . $row['et_link']?>
         </fieldset>
 
 

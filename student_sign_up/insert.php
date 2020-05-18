@@ -17,7 +17,7 @@
 
             // Requête mysql pour insérer des données
             //$sql = "INSERT INTO etudiant SET et_nom=:et_nom, et_prenom=:et_prenom, et_email=:et_email, et_mdp=:et_mdp, et_annee=:et_annee, et_naissance=:et_naissance, et_tele=:et_tele)";
-            $sql = "INSERT INTO etudiant (et_nom, et_prenom,et_email, et_mdp,et_annee,et_naissance,et_tele,et_cne) values (:et_nom, :et_prenom, :et_email, :et_mdp, :et_annee,:et_naissance, :et_tele, :et_cne)";
+            $sql = "INSERT INTO etudiant (et_nom, et_prenom,et_email, et_mdp,et_annee,et_naissance,et_tele,et_cne, et_link) values (:et_nom, :et_prenom, :et_email, :et_mdp, :et_annee,:et_naissance, :et_tele, :et_cne, :et_link)";
             // prepare query for execution
             $stmt = $conn->prepare($sql);
             
@@ -30,6 +30,7 @@
              $et_naissance = $_POST['et_naissance'];
              $et_tele = $_POST['et_tele'];
              $et_cne = $_POST['et_cne'];
+             $et_link = $_POST['et_link'];
 
              // bind the parameters
             $stmt->bindParam(':et_nom', $et_nom);
@@ -40,6 +41,7 @@
             $stmt->bindParam(':et_naissance', $et_naissance);
             $stmt->bindParam(':et_tele', $et_tele);
             $stmt->bindParam(':et_cne', $et_cne);
+            $stmt->bindParam(':et_link', $et_link);
             // Execute the query
             if($stmt->execute()){
                 echo json_encode(array('result'=>'success'));

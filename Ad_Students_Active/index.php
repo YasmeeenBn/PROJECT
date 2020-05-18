@@ -82,7 +82,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Year of study</th>
                     <!-- <th scope="col">Phone Number</th> -->
-                    <th scope="col">Candidate</th>
+
                     <th scope="col">Change Status</th>
                 </tr>
             </thead>

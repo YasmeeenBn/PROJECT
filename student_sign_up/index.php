@@ -98,16 +98,19 @@
                 </fieldset>
 
                 <fieldset>
-                    <label for="et_annee"> </label><input placeholder="Are you in First/Second/third year ?" name="et_annee" type="text" tabindex="2"
-                        required>
+                    <label for="et_annee"></label><input placeholder="Are you in First/Second/third year ?" name="et_annee" type="text" tabindex="2"required>
                 </fieldset>
 
                 <fieldset>
-                    <label for="et_naissance"></label> <input placeholder="Your birth date" name="et_naissance" type="date" tabindex="2" required>
+                    <label for="et_naissance"></label> <input placeholder="Your birth date ( YYYY-MM-DD)" name="et_naissance" type="text" tabindex="2" required>
                 </fieldset>
 
                 <fieldset>
                     <label for="et_tele"> </label><input placeholder="Your Phone Number" name="et_tele" type="tel" tabindex="4" required>
+                </fieldset>
+                
+                <fieldset>
+                    <label for="et_link"> </label><input placeholder="Your Linkedin account" name="et_link" type="linkedin" tabindex="4" required>
                 </fieldset>
 
                 <fieldset>

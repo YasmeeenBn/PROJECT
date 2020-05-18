@@ -92,6 +92,8 @@
               <!-- <a href="#" class="card-link">Decline</a> -->
 
               <a href="editstatus.php?update=<?php echo $row['of_id']; ?>" class="btn btn-primary btn-sm"> Accept </a>
+              <a href="editstatusD.php?update=<?php echo $row['of_id']; ?>" class="btn btn-primary btn-sm"> Decline </a>
+
               
               <!-- <a href="editstatus.php?update=" class="btn btn-primary btn-sm"> Decline </a> -->
 

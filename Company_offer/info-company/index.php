@@ -91,6 +91,10 @@
           <label for="en_email">  </label><input placeholder="Your Email Address" name="en_email"  type="email" tabindex="2" required>
         </fieldset>
 
+        <fieldset>
+          <label for="en_mdp">  </label><input placeholder="Your Password" name="en_mdp"  type="en_mdp" tabindex="2" required>
+        </fieldset>
+
 
         <fieldset>
           <label for="en_web">  </label><input placeholder="Your Web Site (optional)" name="en_web" type="url" >

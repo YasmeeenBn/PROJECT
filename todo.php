@@ -1,22 +1,11 @@
-<!-- COMPANIES:
-************************** -->
-infos  company 
-infos  offer 
-page des offres
-
- <!-- ETUDIANT / admin :
- ************************* -->
- student sign up
-  Ajouter image
- student log in
- conn admin
 
  <!-- to do :
  ************************ -->
-about page 
+Compte d'entreprise 
+Profile entreprise
+Decline n offres admin
 
 
- 
 
 <!-- ************************************
 afficher la liste des etudiants avec les infos completes

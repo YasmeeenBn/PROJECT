@@ -1,4 +1,3 @@
-
 <?php
     $host = 'localhost';
     $dbname = 'pfa';
@@ -23,6 +22,7 @@
             catch (PDOException $e) {
                 die("Impossible de se connecter à la base de données $dbname :" );
             }
+
             // if (isset($_POST['post'])){
             //     $select = "SELECT of_id from offre where of_sujet = ? and image = ?;";
             //     $stmt2 = $conn->prepare($select);
@@ -35,12 +35,9 @@
             //     // var_dump($results);
             //     // $json = json_encode($results);            
             //     echo $results['of_id'];
-
-               
                 
             //     header("location:../Student_demands/index.php?id=". $row['of_id']."");
             // }
-        
         
 ?>
 

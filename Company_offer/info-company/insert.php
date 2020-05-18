@@ -16,7 +16,7 @@
             }
 
             // insert query
-            $sql = "INSERT INTO entreprise (en_nom, en_ville, en_tele, en_email, en_web) values (:en_nom, :en_ville, :en_tele, :en_email, :en_web)";
+            $sql = "INSERT INTO entreprise (en_nom, en_ville, en_tele, en_email,en_mdp, en_web) values (:en_nom, :en_ville, :en_tele, :en_email, :en_mdp, :en_web)";
             // prepare query for execution
             $stmt = $conn->prepare($sql);
             // posted values
@@ -24,6 +24,7 @@
             $en_ville= $_POST['en_ville'];
             $en_tele = $_POST['en_tele'];
             $en_email = $_POST['en_email'];
+            $en_mdp = $_POST['en_mdp'];
             $en_web = $_POST['en_web'];
 
             // bind the parameters
@@ -31,6 +32,7 @@
             $stmt->bindParam(':en_ville', $en_ville);
             $stmt->bindParam(':en_tele', $en_tele);
             $stmt->bindParam(':en_email', $en_email);
+            $stmt->bindParam(':en_mdp', $en_mdp);
             $stmt->bindParam(':en_web', $en_web);
 
             // Execute the query

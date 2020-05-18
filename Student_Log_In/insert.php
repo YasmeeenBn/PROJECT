@@ -7,6 +7,8 @@
 
             include_once '../Classes/Class_admin.php';
             include_once '../Classes/ClasseEtudiant.php';
+            include_once '../Classes/Class_company.php';
+
 
             $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
             $erreur = null;
@@ -18,7 +20,8 @@
                 $connecter=false;
                 $etudiant;
                 $admin;
-                if(isset($_POST['et_email']) and isset($_POST['et_mdp'])){
+                $company;
+                if(isset($_POST['et_email']) and isset($_POST['et_mdp']) ){
                     // recuperer les donnees de l'admin pour savoir est ce que c'est lui qui veut se connecter
                     $result = $conn->query('SELECT et_email,et_mdp from administrateur');
                     foreach($result as $row) {
@@ -31,7 +34,7 @@
                             break;
                         }
                     }
-                    if(!$connecter){
+                    if (!$connecter){
                         $result = $conn->query('SELECT et_email, et_mdp from etudiant');
                         foreach($result as $row) {
                             if($row['et_email']==$_POST['et_email'] && $row['et_mdp']==$_POST['et_mdp']){
@@ -67,7 +70,19 @@
                             } 
                                 
                         }
+                    }
+                    }
 
+                    if(!$connecter){
+                        $result = $conn->query('SELECT et_email, et_mdp from entreprise');
+                        foreach($result as $row) {
+                            if($row['et_email']==$_POST['et_email'] and $row['et_mdp']==$_POST['et_mdp']){
+                                $company = Class_company::construct1($row['et_email'], $row['et_mdp']);
+                                $connecter=true;
+                                $personne='company';
+                                break;
+                            }
+                        }
                     }
                 
                     if($connecter){
@@ -90,7 +105,12 @@
                                 
                             } 
                             // header("location:http://yas/student_profile/index.php?id=". $results['et_id'] ."");
-                    }      
+                        } 
+                        else if($personne == 'company'){
+                            $_SESSION['company'] = $company;
+                            header('location:');
+                        }
+             
                         }   
    // **********************************************************************************************************************
                                           
@@ -101,7 +121,7 @@
                     }
 
                 }
-            }
+            
 
 ?>
 

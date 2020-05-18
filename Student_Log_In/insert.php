@@ -7,7 +7,8 @@
 
             include_once '../Classes/Class_admin.php';
             include_once '../Classes/ClasseEtudiant.php';
-            include_once '../Classes/Class_company.php';
+            include_once '../Classes\Class_company.php';
+            
 
 
             $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -76,8 +77,8 @@
                     if(!$connecter){
                         $result = $conn->query('SELECT et_email, et_mdp from entreprise');
                         foreach($result as $row) {
-                            if($row['et_email']==$_POST['et_email'] and $row['et_mdp']==$_POST['et_mdp']){
-                                $company = Class_company::construct1($row['et_email'], $row['et_mdp']);
+                            if($row['et_email']==$_POST['et_email'] && $row['et_mdp']==$_POST['et_mdp']){
+                                $company = Class_company::construct3($row['et_email'], $row['et_mdp']);
                                 $connecter=true;
                                 $personne='company';
                                 break;

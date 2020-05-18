@@ -60,8 +60,10 @@
             </li> -->
             <li><a href="http://yas/Ad_Students_Active/"><span class="fa fa-money"></span>Active Students</a></li>
             <li><a href="http://yas/Ad_Students_Suspended/"><span class="fa fa-money"></span>Suspended Stud</a></li>
+            <li><a href="http://yas/Ad_Company_Active/"><span class="fa fa-money"></span>Active Companies</a></li>
+            <li><a href="http://yas/Ad_Company_Suspended/"><span class="fa fa-money"></span>Suspended Comp</a></li>
             <li><a href="http://yas/Ad_offers/"><span class="fa fa-money"></span>Offers Accepted</a></li>
-            <li><a href="http://yas/Ad_demands/"><span class="fa fa-user-o"></span>Demands</a></li>
+            <li><a href="http://yas/Ad_demands/"><span class="fa fa-user-o"></span>Demands Offers</a></li>
             <li><a href="http://yas/Admin_Contact/"><span class="fa fa-envelope-o"></span>Contact Users</a></li>
             <li><a href="log_out.php"><span class="fa fa-envelope-o"></span>Log Out</a></li>
         </ul>

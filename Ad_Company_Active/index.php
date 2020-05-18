@@ -3,18 +3,18 @@
     $dbname = 'pfa';
     $username = 'root';
     $password = '';
-    // include "editstatus.php";
 
             try {
                 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-                 // echo "Connecté à $dbname sur $host avec succès.";
+                // echo "Connecté à $dbname sur $host avec succès.";
 
                // $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-               $query = "SELECT of_sujet,of_description, image, of_id, of_duree FROM offre where of_status = 0";
+               $query = "SELECT e_id, en_nom,et_email, en_tele FROM entreprise where en_status = 1";
                 $stmt = $conn-> prepare($query);
                 $result = $stmt->execute();
 
-                $sqlselect = "SELECT count(*) from offre";
+                $sqlselect = "SELECT count(*) from entreprise";
+
 
                 // $contacts = $stmt->fetchAll();
                 $contacts = $conn -> query($query);
@@ -23,7 +23,8 @@
             catch (PDOException $e) {
               die("Impossible de se connecter à la base de données $dbname :" );
             }
-       
+
+        
 ?>
 
 <!DOCTYPE html>
@@ -47,11 +48,17 @@
 
         <div class="avatar">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCNOdyoIXDDBztO_GC8MFLmG_p6lZ2lTDh1ZnxSDawl1TZY_Zw" alt="">
-            <div class="avatarName">Welcome,<br>Mr.Zellou</div>
+            <div class="avatarName">Welcome,<br> Mr. Zellou</div>
         </div>
 
         <ul class="sideMenu">
-        <li><a href="http://yas/Ad_Students_Active/"><span class="fa fa-money"></span>Active Students</a></li>
+            <!-- <li><a href="javascript:void(0)" class="has-submenu"><span class="fa fa-table"></span>Students</a>
+                <ul class="submenu">
+                    <li><a href="Ad_Students_Active\index.php?c=product&a=list01"><span class="fa fa-list"></span>Active Students</a></li>
+                    <li><a href="Ad_Students_Suspended\index.php?c=product&a=list02"><span class="fa fa-tags"></span>Suspended Students</a></li>
+                </ul>
+            </li> -->
+            <li><a href="http://yas/Ad_Students_Active/"><span class="fa fa-money"></span>Active Students</a></li>
             <li><a href="http://yas/Ad_Students_Suspended/"><span class="fa fa-money"></span>Suspended Stud</a></li>
             <li><a href="http://yas/Ad_Company_Active/"><span class="fa fa-money"></span>Active Companies</a></li>
             <li><a href="http://yas/Ad_Company_Suspended/"><span class="fa fa-money"></span>Suspended Comp</a></li>
@@ -60,57 +67,52 @@
             <li><a href="http://yas/Admin_Contact/"><span class="fa fa-envelope-o"></span>Contact Users</a></li>
             <li><a href="log_out.php"><span class="fa fa-envelope-o"></span>Log Out</a></li>
         </ul>
-        
+      
       </div>
 
     </div>
 
-    <div class="card-deck bot-container">
+    <div class="table-responsive-md">
+        <table class="table table-hover bot-container">
+            <thead>
+            <tr class="table-primary">
+                    <!-- <th scope="col">#</th> -->
+                    <th scope="col">Company's Name</th>
+                    <!-- <th scope="col">Last name</th> -->
+                    <th scope="col">Email</th>
+                    <!-- <th scope="col">City</th> -->
+                    <!-- <th scope="col">Phone Number</th> -->
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Status </th>
+                </tr>
+            </thead>
 
-    <?php  
+            <?php  
                 $res = $conn -> query($sqlselect);
                 if ($res -> fetchColumn()>0){
                     foreach ($contacts as $row){
-    ?> 
-<!-- <form action="" method='post'> -->
-      <div class="card text-white bg-primary border-primary mb-3 text-center">
-      <form action="" method='post'>
-        <div class="card_image">
-        <img src="../Company_offer/info-img/uploads/<?php echo $row['image']; ?>"> 
-        </div>
-        <!-- <form action="" method="post"> -->
-        <tbody>
-            <div class="card-body">
-                  <h5 class="card-title"><?php  echo $row['of_sujet']?></h5>
-            </div>
-            <ul class="list-group list-group-flush" style="color: royalblue;">
-                  <li class="list-group-item"><?php  echo 'Duree en mois :' .$row['of_duree']?></li>
-                  <li class="list-group-item"><?php  echo $row['of_description']?></li>
-            </ul>
-            <div class="card-body" style="color: white;">
-              <!-- <a href="#" class="card-link" style="margin-right: 50px;">Accept</a> -->
-              <!-- <a href="#" class="card-link">Decline</a> -->
+            ?> 
 
-              <a href="editstatus.php?update=<?php echo $row['of_id']; ?>" class="btn btn-primary btn-sm"> Accept </a>
-              
-              <!-- <a href="editstatus.php?update=" class="btn btn-primary btn-sm"> Decline </a> -->
+            <tbody>
+                <tr>
+                    <!-- <th scope="row">1</th> -->
+                    <td><?php  echo $row['en_nom']?></td>
+                    <td><?php  echo $row['et_email']?></td>
+                    <td><?php  echo $row['en_tele']?></td>
+                    <td>
+                        <a href="editstatus.php?update=<?php echo $row['e_id']; ?>" class="btn btn-primary btn-sm"> Suspend </a>
+                    </td>
+                    <!-- <td><button type="submit" class="btn btn-primary btn-sm">Suspend</button></td>   -->
+                </tr>
+            </tbody>
 
-              <!-- <button class="btn card_btn" type="submit"> Accept</button>
-
-              <button class="btn card_btn" type="submit"> Decline</button> -->
-
-            </div>
-        </tbody>
-        
-      </div>
-      </form>
-    
-      <?php
+            <?php
                 }
               
          }
     ?>
+        </table>
     </div>
-  
+      
   </body>
 </html>

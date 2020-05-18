@@ -4,6 +4,9 @@
     $username = 'root';
     $password = '';
     $et_id = $_GET['id'];
+    $of_id = $_GET['of_id'];
+
+    if(isset($_POST['submit'])){
             try {
                 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
               //   echo "Connecté à $dbname sur $host avec succès.";
@@ -14,14 +17,14 @@
               die("Impossible de se connecter à la base de données $dbname :" );
             }
 
-            $query = "SELECT of_id, of_sujet,of_datedebut,of_datefin,of_description from offre where of_id = :of_id";
+            $query = "SELECT of_id, of_sujet, of_datedebut, of_datefin, of_description from offre where of_id = :of_id";
             $stmt = $conn-> prepare($query);
             $stmt->bindParam(':of_id', $of_id);
+
             $stmt->execute();
             // $contacts = $conn -> query($query);
-            
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                   
+      }                
 ?>
 
 <!DOCTYPE html>
@@ -99,8 +102,8 @@
 		<tr>
 			<th><h1>Offer's Subject</h1></th>
 			<th><h1>Start Date</h1></th>
-            <th><h1>End Date</h1></th>
-            <th><h1>Offer's Description</h1></th>
+      <th><h1>End Date</h1></th>
+      <th><h1>Offer's Description</h1></th>
 
 		</tr>
     </thead>
@@ -108,10 +111,10 @@
     <form action="" method="post">
         <tbody>
             <tr>
-                <td> <?php  $row['of_sujet'] ?> </td>
-                <td>  <?php  $row['of_datedebut'] ?></td>
-                <td> <?php  $row['of_datefin'] ?> </td>
-                <td> <?php  $row['of_description'] ?> </td>
+                <td> <?php  echo $of_sujet ?> </td>
+                <td>  <?php  echo $of_datedebut ?></td>
+                <td> <?php  echo $of_datefin ?> </td>
+                <td> <?php  echo $of_description ?> </td>
             </tr>
         </tbody>
     </form>

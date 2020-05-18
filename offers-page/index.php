@@ -10,7 +10,7 @@
                 // echo "Connecté à $dbname sur $host avec succès.";
 
                // $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-               $query = "SELECT of_sujet,of_description, of_duree,image FROM offre where of_status = 1 ";
+               $query = "SELECT of_id, of_sujet, of_duree, of_description,image FROM offre where of_status = 1 ";
                 $stmt = $conn-> prepare($query);
                 $result = $stmt->execute();
 
@@ -21,12 +21,25 @@
                 $contacts = $conn -> query($query);
             } 
             catch (PDOException $e) {
-              die("Impossible de se connecter à la base de données $dbname :" );
+                die("Impossible de se connecter à la base de données $dbname :" );
             }
-            if (isset($_POST['submit'])){
+            // if (isset($_POST['post'])){
+            //     $select = "SELECT of_id from offre where of_sujet = ? and image = ?;";
+            //     $stmt2 = $conn->prepare($select);
+            //     // $stmt2 -> bindParam(1, $et_id);
+            //     // $stmt2 -> bindParam(1, $_POST['et_email']);
+            //     // $stmt2 -> bindParam(2, $_POST['et_mdp']);
+                                
+            //     $stmt2->execute();
+            //     $results = $stmt2->fetch();
+            //     // var_dump($results);
+            //     // $json = json_encode($results);            
+            //     echo $results['of_id'];
 
-                header("http://yas/Student_demands/");
-            }
+               
+                
+            //     header("location:../Student_demands/index.php?id=". $row['of_id']."");
+            // }
         
         
 ?>
@@ -109,28 +122,33 @@
     ?>    
 
                     <li class="cards_item">
+                <!-- <form method="POST"> -->
                         <div class="card">
                             <div class="card_image">
                                 <img src="../Company_offer/info-img/uploads/<?php echo $row['image']; ?>"> 
                                      <!--  <img src="https://images.pexels.com/photos/221164/pexels-photo-221164.jpeg">        width="100" height="100" 361.983×241.317-->
                             </div>
                             <div class="card_content">
-                            <form action="" method="post">
                                 <tbody>
-                                <tr>
-                                    <h2 class="card_title"><td> <?php  echo 'Sujet :' .$row['of_sujet']?></td></h2>
-                                    <h2 class="card_title"><td> <?php  echo 'Duree :' .$row['of_duree']?></td></h2>
-                                    <p class="card_text"><td> <?php  echo $row['of_description']?></td></p>
-                                    
-                                </tr>
+                                        <tr>
+                                            <h2 class="card_title"><td> <?php  echo 'Sujet :' .$row['of_sujet']?></td></h2>
+                                            <h2 class="card_title"><td> <?php  echo 'Duree :' .$row['of_duree']?></td></h2>
+                                            <p class="card_text"><td> <?php  echo $row['of_description']?></td></p>
+                                            
+                                            <!-- <td> <button type="submit">  </button> </td> -->
+                                            <!-- <td> <input class="btn card_btn" type="submit" value="Postuler" name="post"/> </td> -->
+                                            <td>
+                                                <a href="../Student_demands/index.php?id=<?php echo $row['of_id']?>" class="btn card_btn">Postuler</a>
+                                           </td>
+                                        </tr>
                                 </tbody>
-                            </form>
 
-                            <button class="btn card_btn" type="submit"> Postuler </button>
 
                             </div>
                         </div>
+                <!-- </form> -->
                     </li>
+
 
     <?php
                 }

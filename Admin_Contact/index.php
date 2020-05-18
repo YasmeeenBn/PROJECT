@@ -1,3 +1,40 @@
+<?php
+$host = 'localhost';
+$dbname = 'pfa';
+$username = 'root';
+$password = '';
+
+        try {
+            $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+        }
+        catch (PDOException $e) {
+            die("Impossible de se connecter à la base de données $dbname :" );
+        }
+        if(isset($_POST['submit'])){
+
+            $name = $_POST['name'];
+            $student_email = $_POST['et_email'];
+            $message = $_POST['message'];
+
+            $email_from = 'zouhair.ghazi1999@gmail.com';
+
+            $email_subject = "New Form Submission";
+
+            $email_body = "$message";   
+            
+            $to = "yasminebenomar3@gmail.com";
+
+            $headers = "From : $email_from\r\n";
+
+            $headers .= "Reply-To : $student_email\r\n";
+
+            mail($to, $email_subject, $email_body, $headers);
+
+            // header("Location: index.html");
+        }
+           
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -41,7 +78,7 @@
     </div>
 
     <div class="contact">
-      <form>
+      <form action="">
         <div class="form-group" style="width: 35%;">
           <input type="email" class="form-control" id="exampleInputEmail1" placeholder="To" aria-describedby="emailHelp">
           <small id="emailHelp" class="form-text text-muted">Email of your contact</small>

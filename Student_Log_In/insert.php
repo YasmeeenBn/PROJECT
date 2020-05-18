@@ -57,6 +57,8 @@
                             if ($results['et_status'] == 1) {
                                 echo $results['et_id'];
                                 header("location:http://yas/student_profile/index.php?id=". $results['et_id'] ."");
+                                header("location:http://yas/Student_demands/index.php?id=". $results['et_id'] .""); //pour entrer dans la page des demandes de cet etudiant
+
                                 break;
                             } 
                             else {

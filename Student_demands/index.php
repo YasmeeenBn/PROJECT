@@ -119,6 +119,8 @@
                 <td>  <?php  echo $row['of_duree'] ?>Mois </td>
 
                 <td> <?php  echo $row['of_description'] ?> </td>
+                <td><a href="../Student_contact/index.php?of_id=<?php echo $row['of_id']?>&et_id=<?php echo $et_id ?>" name="submit" type="submit" class="btn card_btn">Postuler</a>
+</td>
             </tr>
         </tbody>
     </form>
@@ -127,6 +129,8 @@
                 <td> Stage Développement Informatique </td>
                 <td> 2 Mois </td>
                 <td> chez MEKIA, votre mission sera la construction d’applications performantes et flexibles ainsi que d’autres actions support en lien avec nos projets. vous devrez être capable de bien comprendre les besoins de nos clients et d’analyser et développer des composants logiciels en utilisant les langages appropriés ainsi que de documenter le travail effectué. </td>
+                <td><a href="../Student_contact/index.php?of_id=<?php echo $row['of_id']?>&et_id=<?php echo $et_id ?>" name="submit" type="submit" class="btn card_btn">Postuler</a>
+
             </tr>
         </tbody>
 </table>

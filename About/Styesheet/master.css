@@ -1,0 +1,82 @@
+body
+{
+    background: url(/Resources/office.jpg);
+    background: url(../Resources/office.jpg);
+    background-image: url(../Resources/office.jpg);
+    min-height: 100%;
+}
+
+.nav-item 
+{
+    padding: 5px 5px;
+    font-family: 'Baloo 2', cursive;
+    font-size: large;
+}
+  
+.navbar-brand 
+{
+    font-family: 'Lobster Two', cursive;
+    font-size: xx-large;
+}
+
+.about-section 
+{
+    margin-top: 50px;
+    text-align: center;
+    color: white;
+    font-family: 'Jost', sans-serif;
+    font-size: 20px;
+}
+
+
+.title 
+{
+    font-family: 'Courgette', cursive;
+    font-size: 30px;
+    font-weight: 300;
+    margin: 25px auto 50px;
+    text-align: center;
+}
+  
+
+
+.card 
+{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 100px auto 0;
+    width: 40%;
+    margin-bottom: 16px;
+    background-color: peachpuff;
+    border-radius: 10%;
+}
+
+img
+{
+    border-radius: 50%;
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.contact
+{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.fa-facebook
+{
+    color: blue;
+}
+
+.fa-instagram
+{
+    color: palevioletred;
+}
+
+.fa-youtube
+{
+    color: red;
+}
+
+

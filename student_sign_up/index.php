@@ -116,6 +116,9 @@
                 <fieldset>
                     <label for="et_cne"> </label><input placeholder="Your CNE" name="et_cne" type="cne" tabindex="4" required>
                 </fieldset>
+                <fieldset>
+                    <label for="et_cv"> </label><input placeholder="Your CV's link" name="et_cv" type="cv" tabindex="4" required>
+                </fieldset>
                 <!-- <fieldset>
           <textarea placeholder="Describe your offer here...." tabindex="5" required></textarea>
         </fieldset> -->

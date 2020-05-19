@@ -7,7 +7,7 @@
 
             include_once '../Classes/Class_admin.php';
             include_once '../Classes/ClasseEtudiant.php';
-            include_once '../Classes\Class_company.php';
+            include_once '../Classes/Class_company.php';
             
 
 
@@ -61,7 +61,7 @@
                             if ($results['et_status'] == 1) {
                                 echo $results['et_id'];
                                 header("location:http://yas/student_profile/index.php?id=". $results['et_id'] ."");
-                                header("location:http://yas/Student_demands/index.php?id=". $results['et_id'] .""); //pour entrer dans la page des demandes de cet etudiant
+                                // header("location:http://yas/Student_demands/index.php?id=". $results['et_id'] .""); //pour entrer dans la page des demandes de cet etudiant
 
                                 break;
                             } 
@@ -122,6 +122,7 @@
                         // la personne qui veut se connecter est un etudiant.
                         else if($personne == 'etudiant'){
                             $_SESSION['etudiant'] = $etudiant;
+                            $_SESSION['et_id'] = $results['et_id'];
                             if ($results['et_status'] == 1) {
                                 echo $results['et_id'];
                                 header("location:http://yas/student_profile/index.php?id=". $results['et_id'] ."");

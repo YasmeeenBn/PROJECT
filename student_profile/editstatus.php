@@ -3,7 +3,7 @@
     $dbname = 'pfa';
     $username = 'root';
     $password = '';
-    if(isset($_POST['submit'])){
+    // if(isset($_POST['submit'])){
 
             try {
               $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -22,6 +22,6 @@
             
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             // *************************************************************************************************
-            header("http://yas/Student_demands/");
-        } 
+            // header("http://yas/Student_demands/");
+        // } 
         

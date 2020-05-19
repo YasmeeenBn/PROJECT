@@ -104,10 +104,10 @@
 <table class="container">
 	<thead>
 		<tr>
-			<th><h1>Offer's Subject</h1></th>
-			<th><h1>Duration</h1></th>
+			<th><h1>Student's Name</h1></th>
+			<th><h1>Profile</h1></th>
       <!-- <th><h1>End Date</h1></th> -->
-      <th><h1>Offer's Description</h1></th>
+      <th><h1>Offer's Subject</h1></th>
 
 		</tr>
     </thead> 
@@ -122,13 +122,13 @@
             </tr>
         </tbody>
     </form>
-    <tbody>
+    <!-- <tbody>
             <tr>
                 <td> Stage Développement Informatique </td>
                 <td> 2 Mois </td>
                 <td> chez MEKIA, votre mission sera la construction d’applications performantes et flexibles ainsi que d’autres actions support en lien avec nos projets. vous devrez être capable de bien comprendre les besoins de nos clients et d’analyser et développer des composants logiciels en utilisant les langages appropriés ainsi que de documenter le travail effectué. </td>
             </tr>
-        </tbody>
+        </tbody> -->
 </table>
 </body>
 </html>

@@ -3,7 +3,8 @@
     $dbname = 'pfa';
     $username = 'root';
     $password = '';
-    
+    session_start();
+    $et_id = $_SESSION['et_id'];
             try {
                 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
                 // echo "Connecté à $dbname sur $host avec succès.";
@@ -23,21 +24,7 @@
                 die("Impossible de se connecter à la base de données $dbname :" );
             }
 
-            // if (isset($_POST['post'])){
-            //     $select = "SELECT of_id from offre where of_sujet = ? and image = ?;";
-            //     $stmt2 = $conn->prepare($select);
-            //     // $stmt2 -> bindParam(1, $et_id);
-            //     // $stmt2 -> bindParam(1, $_POST['et_email']);
-            //     // $stmt2 -> bindParam(2, $_POST['et_mdp']);
-                                
-            //     $stmt2->execute();
-            //     $results = $stmt2->fetch();
-            //     // var_dump($results);
-            //     // $json = json_encode($results);            
-            //     echo $results['of_id'];
-                
-            //     header("location:../Student_demands/index.php?id=". $row['of_id']."");
-            // }
+            // header("location: http://yas/Student_demands/index.php?of_id=". $row['of_id'] ." &et_id=". $et_id);
         
 ?>
 
@@ -128,14 +115,14 @@
                             <div class="card_content">
                                 <tbody>
                                         <tr>
-                                            <h2 class="card_title"><td> <?php  echo 'Sujet :' .$row['of_sujet']?></td></h2>
-                                            <h2 class="card_title"><td> <?php  echo 'Duree :' .$row['of_duree']?></td></h2>
+                                            <h2 class="card_title"><td> <?php  echo $row['of_sujet']?></td></h2>
+                                            <h2 class="card_title"><td> <?php  echo $row['of_duree']?></td></h2>
                                             <p class="card_text"><td> <?php  echo $row['of_description']?></td></p>
                                             
                                             <!-- <td> <button type="submit">  </button> </td> -->
                                             <!-- <td> <input class="btn card_btn" type="submit" value="Postuler" name="post"/> </td> -->
                                             <td>
-                                                <a href="../Student_demands/index.php?id=<?php echo $row['of_id']?>" class="btn card_btn">Postuler</a>
+                                                <a href="../Student_demands/index.php?of_id=<?php echo $row['of_id']?>&et_id=<?php echo $et_id ?>" name="submit" type="submit" class="btn card_btn">Postuler</a>
                                            </td>
                                         </tr>
                                 </tbody>

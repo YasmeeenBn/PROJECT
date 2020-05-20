@@ -119,12 +119,12 @@
                 <td>  <?php  echo $row['of_duree'] ?>Mois </td>
 
                 <td> <?php  echo $row['of_description'] ?> </td>
-                <td><a href="../Student_contact/index.php?of_id=<?php echo $row['of_id']?>&et_id=<?php echo $et_id ?>" name="submit" type="submit" class="btn card_btn">Postuler</a>
+                <td><a href="../Student_contact/index.php?of_id=<?php echo $row['of_id']?>" name="submit" type="submit" class="btn card_btn">Postuler</a>
 </td>
             </tr>
         </tbody>
     </form>
-    <tbody>
+    <!-- <tbody>
             <tr>
                 <td> Stage Développement Informatique </td>
                 <td> 2 Mois </td>
@@ -132,7 +132,7 @@
                 <td><a href="../Student_contact/index.php?of_id=<?php echo $row['of_id']?>&et_id=<?php echo $et_id ?>" name="submit" type="submit" class="btn card_btn">Postuler</a>
 
             </tr>
-        </tbody>
+        </tbody> -->
 </table>
 </body>
 </html>

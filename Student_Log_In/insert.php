@@ -78,7 +78,7 @@
                         $result = $conn->query('SELECT et_email, et_mdp from entreprise');
                         foreach($result as $row) {
                             if($row['et_email']==$_POST['et_email'] && $row['et_mdp']==$_POST['et_mdp']){
-                                $company = Class_company::construct3($row['et_email'], $row['et_mdp']);
+                                $company = Classe_company::construct3($row['et_email'], $row['et_mdp']); 
                                 $connecter=true;
                                 $personne='company';
                                 

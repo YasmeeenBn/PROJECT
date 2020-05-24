@@ -92,6 +92,7 @@
                 if ($res -> fetchColumn()>0){
                     foreach ($contacts as $row){
             ?> 
+            
 
 
             <tbody>

@@ -82,7 +82,6 @@
                                 $connecter=true;
                                 $personne='company';
                                 
-                                
                                 $select = "SELECT e_id, en_status from entreprise where et_email = ? and et_mdp = ?;";
                                 $stmt2 = $conn->prepare($select);
                                 // $stmt2 -> bindParam(1, $et_id);
@@ -98,8 +97,8 @@
                             
                             if ($results['en_status'] == 1) {
                                 echo $results['e_id'];
-                                header("location:http://yas/Company_profile/index.php?id=". $results['e_id'] ."");
-                                // header("location:http://yas/Student_demands/index.php?id=". $results['et_id'] .""); //pour entrer dans la page des demandes de cet etudiant
+                                // header("location:http://yas/Company_profile/index.php?id=". $results['e_id'] ."");
+                                header("location:http://yas/company_demands/index.php?id=". $results['e_id'] .""); 
 
                                 break;
                             } 
@@ -136,10 +135,13 @@
                         } 
                         else if($personne == 'company'){
                             $_SESSION['company'] = $company;
+                            $_SESSION['e_id'] = $results['e_id'];
+
                             if ($results['en_status'] == 1) {
                                 echo $results['e_id'];
-                                header("location:http://yas/Company_profile/index.php?id=". $results['e_id'] ."");
-                                
+                                header("location:http://yas/company_demands/index.php?id=". $results['e_id'] .""); 
+                                // header("location:http://yas/company_off_enligne//index.php?id=". $results['e_id'] .""); 
+
                             } 
                             else {
                                 header("location:http://yas/accesdenied/");

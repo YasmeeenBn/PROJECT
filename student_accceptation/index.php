@@ -3,12 +3,11 @@
     $dbname = 'pfa';
     $username = 'root';
     $password = '';
-    $of_id = $_GET['of_id'];
+    // $of_id = $_GET['of_id'];
     // $et_id=" . $et_id . ";
     session_start();
     $et_id = $_SESSION['et_id'];
-
-    // $of_id = $_GET['of_id'];
+    // $of_sujet = $_GET['of_sujet'];
     // if(isset($_POST['submit'])){
             try {
                 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -20,12 +19,21 @@
               die("Impossible de se connecter à la base de données $dbname :" );
             }
 
-            $query = "SELECT of_id, of_sujet, of_duree, of_description from offre where of_id = :of_id";
+            // `lettres_motivation`(`id`, `et_id`, `of_id`, `objet`, `lettre`, `e_id`, `et_acc`
+            // SELECT f.of_sujet, objet, lettre, et_acc from lettres_motivation l, offre f where l.et_id = 29 and f.of_id = l.of_id 
+
+            $query = "SELECT f.of_sujet, objet, lettre, et_acc from lettres_motivation l, offre f where et_id = :et_id and f.of_id = l.of_id";
+            
             $stmt = $conn-> prepare($query);
-            $stmt->bindParam(':of_id', $of_id);
+            // $stmt->bindParam(':of_id', $of_id);
+            $stmt->bindParam(':et_id', $et_id);
             $stmt->execute();
+
             // $contacts = $conn -> query($query);
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $sqlselect = "SELECT count(*) from lettres_motivation where et_id = ".$et_id;
+            
+            $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
             // header("location :http://yas/Student_demands/index.php?of_id=". $row['of_id'] ." &et_id=". $et_id );
 
 ?>
@@ -38,7 +46,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!--Font Styles-->
-    <!-- <link href='https://fonts.googleapis.com/css?family=Indie Flower' rel='stylesheet'>  -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Indie Flower' roazdkpoakdpoaapozdkpoakzdpoakdpkapzdpoazdpoel='stylesheet'>  -->
 
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Kalam:wght@300&family=Lato&display=swap" rel="stylesheet"> <!--Courgette-->
     <link href='https://fonts.googleapis.com/css?family=Indie Flower' rel='stylesheet'>  <!-- font -->
@@ -60,7 +68,7 @@
 
     </p>
 
-    <title> Demands Page</title>
+    <title> Acceptation Page</title>
 </head>
 
 <body>   
@@ -97,41 +105,44 @@
       </nav>
     </div>
 
-<!-- <h1><span class="blue">&lt;</span><span class="blue">&gt;</span> <span class="yellow"></pan></h1> -->
+<h1><span class="blue">&lt;</span>demands<span class="blue">&gt;</span> <span class="yellow">Companies ==> <?php echo $et_id ?> </pan></h1>
 <p> </p>
 <p> </p>
 <table class="container">
 	<thead>
 		<tr>
 			<th><h1>Offer's Subject</h1></th>
-			<th><h1>Duration</h1></th>
+			<th><h1>Object</h1></th>
       <!-- <th><h1>End Date</h1></th> -->
-      <!-- <th><h1>Offer's Description</h1></th> -->
+      <th><h1>Letter</h1></th>
+      <th><h1>Status</h1></th>
+
 
 		</tr>
     </thead> 
 
-    <form action="" method="post">
         <tbody>
+        <?php  
+                $res = $conn -> query($sqlselect);
+                if ($res -> fetchColumn()>0){
+                    foreach ($contacts as $row){
+    ?> 
+    <form action="" method="post">
             <tr>
                 <td> <?php  echo $row['of_sujet'] ?> </td>
-                <td>  <?php  echo $row['of_duree'] ?>Mois </td>
+                <td>  <?php  echo $row['objet'] ?> </td>
 
-                <td>  </td>
-                <td><a href="../Student_contact/index.php?of_id=<?php echo $row['of_id']?>" name="submit" type="submit" class="btn card_btn">Message</a>
-</td>
+                <td> <?php  echo $row['lettre'] ?> </td>
+                <td> <?php  echo $row['et_acc'] ?> </td>
+                <!-- <td><a href="../Student_contact/index.php?of_id=" name="submit" type="submit" class="btn card_btn">Postuler</a></td> -->
             </tr>
-        </tbody>
     </form>
-    <tbody>
-            <tr>
-                <td> Stage Développement Informatique </td>
-                <td> 2 Mois </td>
-                <td> chez MEKIA, votre mission sera la construction d’applications performantes et flexibles ainsi que d’autres actions support en lien avec nos projets. vous devrez être capable de bien comprendre les besoins de nos clients et d’analyser et développer des composants logiciels en utilisant les langages appropriés ainsi que de documenter le travail effectué. </td>
-                <td><a href="../Student_contact/index.php?of_id=<?php echo $row['of_id']?>&et_id=<?php echo $et_id ?>" name="submit" type="submit" class="btn card_btn">Message</a>
-
-            </tr>
         </tbody>
+        <?php
+                    }
+                  }
+        ?>
+
 </table>
 </body>
 </html>

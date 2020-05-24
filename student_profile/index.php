@@ -3,9 +3,9 @@
     $dbname = 'pfa';
     $username = 'root';
     $password = '';
-    // $et_id = $_GET['id'];
+    $et_id = $_GET['id'];
     session_start();
-    $et_id = $_SESSION['et_id'];
+    // $et_id = $_SESSION['et_id'];
             try {
                 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
               //   echo "Connecté à $dbname sur $host avec succès.";
